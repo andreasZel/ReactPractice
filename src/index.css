@@ -151,3 +151,12 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.StudentCard {
+  display: flex;
+  justify-content: center;
+}
+
+.StudentCard > h1 {
+  padding-left: 10px;
+}
