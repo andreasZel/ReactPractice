@@ -5,6 +5,8 @@ import Footer from "./Components/Footer";
 import StudentCard from "./Components/StudentCard";
 import { StudentClass } from "./ClassOfStudents.js";
 
+// use the map function to get the data and display them as
+// StudentCard components
 export default function App() {
   let Students = StudentClass.map((current_student) => {
     return (
