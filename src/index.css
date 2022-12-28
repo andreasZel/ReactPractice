@@ -1,13 +1,153 @@
-body {
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&display=swap");
+
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  padding: 0;
+}
+
+html {
+  height: 100%;
+  font-family: Inter, sans-serif;
+}
+
+body {
+  height: 100%;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Inter",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: linear-gradient(
+    0deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(0, 0, 0, 1) 19%,
+    rgba(83, 83, 83, 1) 100%
+  );
+  background-repeat: no-repeat;
+}
+
+.App,
+.root {
+  height: 100%;
+}
+
+.App {
+  width: 40%;
+  margin: auto;
+}
+
+.info {
+  width: 100%;
+  margin: auto;
+  padding: 30px;
+  text-align: center;
+}
+
+.infoPicture {
+  width: 100%;
+  margin: auto;
+  border-radius: 50px 50px 0px 0px;
+}
+
+.footer {
+  padding: 30px;
+}
+
+.footer > img {
+  background-color: rgb(192, 192, 192);
+  border-radius: 10px;
+  padding: 5px;
+  width: 5vw;
+  margin: 10px;
+}
+
+h1 {
+  color: rgb(238, 238, 238);
+  font-size: 3vw;
+  font-weight: 400;
+}
+
+h2 {
+  color: rgb(252, 205, 177);
+  font-size: 1.5vw;
+  font-weight: 300;
+}
+
+.Small {
+  margin-top: 60px;
+  padding: 10px;
+  font-size: 1.5vw;
+  color: rgb(238, 238, 238);
+}
+
+.Buttons {
+  margin-top: 30px;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  height: 70px;
+  width: 100%;
+  justify-content: center;
+}
+
+.EmailButton img,
+.LinkedinButton img {
+  width: 30px;
+  height: 30px;
+}
+
+.Buttons > button {
+  font-size: 1.5vw;
+  width: 11.719vw;
+  height: 2.734vw;
+}
+
+.EmailButton {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  align-items: center;
+  border-radius: 10px;
+  background-color: aliceblue;
+  transition: 0.7s;
+  color: rgb(48, 48, 48);
+}
+
+.EmailButton:hover {
+  background-color: rgb(187, 187, 187);
+}
+
+.LinkedinButton {
+  color: aliceblue;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  align-items: center;
+  border-radius: 10px;
+  background-color: rgb(43, 152, 255);
+  transition: 0.7s;
+}
+
+.LinkedinButton:hover {
+  background-color: rgb(137, 197, 253);
+}
+
+.About {
+  color: rgb(139, 139, 139);
+}
+
+p,
+ul {
+  padding: 30px;
+  font-size: 1.5vw;
+}
+
+ul > li {
+  text-decoration: none;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
