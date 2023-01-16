@@ -1,0 +1,107 @@
+.PopUpContainer {
+  margin: auto;
+  display: grid;
+  gap: 25px;
+  grid-template-columns: 20% 75.9%;
+  grid-template-rows: 0.13fr 0.14fr 0.1fr 1fr 0.18fr;
+  width: 600px;
+  height: 900px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 24px 3px rgba(0, 0, 0, 0.25);
+  background-color: #444444;
+  align-items: center;
+}
+
+.PopUpCloseBtn {
+  background-color: rgb(165, 29, 29);
+  border-radius: 0px 10px 0px 0px;
+  border: none;
+  height: 100%;
+  width: 90px;
+  font-size: 30px;
+  font-weight: 700;
+  color: white;
+  transition: 0.6s;
+}
+
+.PopUpCloseBtn:hover {
+  box-shadow: 0px 0px 9px 2px rgba(255, 255, 255, 0.616);
+}
+
+.PopUpHeader {
+  grid-row: 1;
+  display: flex;
+  grid-column-end: span 2;
+  width: 100%;
+  height: 75px;
+  color: aliceblue;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px 10px 0px 0px;
+  background-color: #7c7c7c;
+}
+
+.PopUpHeader h1 {
+  margin-right: auto;
+  margin-left: 50px;
+}
+
+.NoteTitle {
+  grid-row: 2;
+  grid-column: 1;
+  color: aliceblue;
+  text-align: center;
+}
+
+.TitleOfNote {
+  grid-row: 2;
+  grid-column: 2;
+  color: black;
+  height: 100%;
+  margin-right: 20px;
+  border-radius: 10px;
+  font-size: 40px;
+}
+
+.NoteDescription {
+  grid-row: 3;
+  grid-column-end: span 2;
+  color: aliceblue;
+  word-wrap: break-word;
+  text-align: center;
+  overflow-wrap: break-word;
+}
+
+.DescriptionOfNote {
+  grid-row: 4;
+  grid-column-end: span 2;
+  color: black;
+  margin: 20px;
+  height: 100%;
+  max-height: 500px;
+  max-width: 560px;
+  border-radius: 10px;
+  font-size: 40px;
+  overflow-wrap: break-word;
+}
+
+.MakeNoteBtn {
+  grid-row: 5;
+  grid-column-end: span 2;
+  background-color: #ffe55e;
+  border-radius: 10px;
+  border: none;
+  height: 60px;
+  margin: auto;
+  width: 200px;
+  font-size: 30px;
+  font-weight: 700;
+  color: #444444;
+  transition: 0.6s;
+  justify-content: center;
+  align-items: center;
+}
+
+.MakeNoteBtn:hover {
+  transform: scale(0.8);
+}
