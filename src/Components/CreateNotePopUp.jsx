@@ -13,7 +13,7 @@ export default function CreateNotePopUp(props) {
         <h2 className="NoteTitle"> Title: </h2>
         <input type="text" className="TitleOfNote" />
         <h2 className="NoteDescription"> Description: </h2>
-        <textarea type="text" className="DescriptionOfNote"> </textarea>
+        <textarea className="DescriptionOfNote"> </textarea>
         <button className="MakeNoteBtn"> Note! </button>
       </div>
     </div>
