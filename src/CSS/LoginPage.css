@@ -1,0 +1,106 @@
+.blogInPage {
+  width: 100%;
+  height: 100%;
+  padding: 0%;
+  margin: 0%;
+}
+
+.logInContainer {
+  margin: auto;
+  margin-top: 400px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 0.2fr 0.8fr 0.2fr;
+  gap: 20px;
+  width: 800px;
+  height: 600px;
+  background-color: #fff0a1;
+}
+
+.logInHeader {
+  height: 80px;
+  width: 100%;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  background: #595959;
+  box-shadow: 0px 4px 34px -1px rgba(0, 0, 0, 0.25);
+  margin: 0%;
+  padding: 0%;
+  font-size: 20px;
+  font-weight: 700;
+  color: aliceblue;
+}
+
+.logInHeader span {
+  height: 100%;
+  color: #ffe55e;
+}
+
+.loginInfo {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  grid-template-columns: 0.7fr 1fr;
+  grid-template-rows: 0.3fr 0.5fr 0.1fr;
+  margin: auto;
+  height: 100%;
+  width: 100%;
+}
+
+.loginInfo h2 {
+  font-size: 35px;
+}
+
+.loginInfo h4 {
+  font-size: 26px;
+  font-weight: 600;
+}
+
+.loginInfo h3 {
+  font-size: 29px;
+  font-weight: 700;
+  color: #be5151;
+}
+
+.RegisterPrompt {
+  display: flex;
+  grid-column: 2;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  align-items: center;
+}
+
+.RegisterPrompt h4 {
+  padding-right: 10px;
+}
+
+.loginInfo input {
+  width: 400px;
+  height: 40px;
+  border-radius: 10px;
+  border: none;
+  background-color: #dacd88;
+  padding: 10px;
+  font-size: 25px;
+}
+
+.LogInBtn {
+  width: 300px;
+  height: 60px;
+  background: #595959;
+  border-radius: 6px;
+  border: none;
+  color: aliceblue;
+  font-size: 29px;
+  font-weight: 600;
+  margin-left: auto;
+  margin-right: 30px;
+  transition: 0.6s;
+}
+
+.LogInBtn:hover {
+    box-shadow: 0px 4px 34px -1px rgba(0, 0, 0, 0.25);
+    transform: scale(0.9);
+}
