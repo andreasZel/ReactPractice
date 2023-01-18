@@ -1,24 +1,26 @@
-.logInPage {
+.registerPage {
   width: 100%;
   height: 100%;
   padding: 0%;
   margin: 0%;
 }
 
-.logInContainer {
+.registerContainer {
   margin: auto;
   margin-top: 400px;
   display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 0.2fr 0.8fr 0.2fr;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 0.3fr 0.8fr 0.3fr;
+  align-items: center;
   gap: 20px;
   width: 800px;
   height: 600px;
   background-color: #fff0a1;
 }
 
-.logInHeader {
-  height: 80px;
+.registerHeader {
+  height: 120px;
+  grid-column: span 2;
   width: 100%;
   display: flex;
   text-align: center;
@@ -33,33 +35,34 @@
   color: aliceblue;
 }
 
-.logInHeader span {
+.registerHeader span {
   height: 100%;
   color: #ffe55e;
 }
 
-.loginInfo {
+.registerInfo {
   display: grid;
+  grid-column: span 2;
   justify-content: center;
   align-items: center;
   text-align: center;
   grid-template-columns: 0.7fr 1fr;
-  grid-template-rows: 0.3fr 0.5fr 0.1fr;
+  grid-template-rows: 0.3fr 0.3fr 0.3fr;
   margin: auto;
   height: 100%;
   width: 100%;
 }
 
-.loginInfo h2 {
+.registerInfo h2 {
   font-size: 35px;
 }
 
-.loginInfo h4 {
+.registerInfo h4 {
   font-size: 26px;
   font-weight: 600;
 }
 
-.loginInfo h3 {
+.registerInfo h3 {
   font-size: 29px;
   font-weight: 700;
   color: #be5151;
@@ -76,7 +79,7 @@
   padding-right: 10px;
 }
 
-.loginInfo input {
+.registerInfo input {
   width: 400px;
   height: 40px;
   border-radius: 10px;
@@ -86,7 +89,7 @@
   font-size: 25px;
 }
 
-.LogInBtn {
+.registerBtn {
   width: 300px;
   height: 60px;
   background: #595959;
@@ -96,11 +99,17 @@
   font-size: 29px;
   font-weight: 600;
   margin-left: auto;
-  margin-right: 30px;
+  margin-right: 50px;
   transition: 0.6s;
 }
 
-.LogInBtn:hover {
+.registerBtn:hover {
   box-shadow: 0px 4px 34px -1px rgba(0, 0, 0, 0.25);
   transform: scale(0.9);
+}
+
+.ErrorHandler {
+  margin-left: 20px;
+  font-size: 20px;
+  font-weight: 500;
 }
