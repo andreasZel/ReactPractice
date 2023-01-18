@@ -1,36 +1,36 @@
 .note {
-    width: 310px;
-    height: 310px;
-    background-color: #FFE55E;
-    position: relative;
-    transition: all .2s ease-in-out;
+  width: 310px;
+  height: 310px;
+  background-color: #ffe55e;
+  position: relative;
+  transition: all 0.2s ease-in-out;
 }
 
 .note:hover {
-    transform: scale(0.9);
+  transform: scale(0.9);
 }
 
 .note h1 {
-    position: absolute;
-    top: 43%;
-    left: 26%;
-    margin:auto;
-    overflow: hidden;
-    word-wrap: break-word; 
+  position: absolute;
+  top: 43%;
+  left: 26%;
+  margin: auto;
+  overflow: hidden;
+  word-wrap: break-word;
 }
 
 .date-box {
-    background-color: #757575;
-    position: absolute;
-    top: 0;
-    height: 50px;
-    width: 100%;
-    text-align: center; 
+  background-color: #757575;
+  position: absolute;
+  top: 0;
+  height: 50px;
+  width: 100%;
+  text-align: center;
 }
 
 .date-box h1 {
-    position: absolute;
-    top: 7px;
-    left: 33%;
-    font-size: 25px;
+  position: absolute;
+  top: 7px;
+  left: 33%;
+  font-size: 25px;
 }
