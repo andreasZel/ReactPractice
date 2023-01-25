@@ -2,7 +2,7 @@ import Header from "./Header.jsx";
 import MainArea from "./MainArea.jsx";
 import AddNoteBtn from "./AddNoteBtn.jsx";
 import CreateNotePopUp from "./CreateNotePopUp.jsx";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 export default function MainPage() {
   let [styleOfNotePopUp, changeVisibility] = useState({
@@ -32,6 +32,12 @@ export default function MainPage() {
       };
     });
   }
+
+  useEffect(() => {
+    if (!localStorage.getItem("user")) {
+      window.location.replace(`http://localhost:3000/LoginPage`);
+    }
+  }, []);
 
   return (
     <div className="mainPage">

@@ -5,7 +5,12 @@ import Image from "../Icons/Image.svg";
 import Italics from "../Icons/Italics.svg";
 import List from "../Icons/list.svg";
 
-export default function FullNote() {
+export default function FullNote(props) {
+
+  function findChoosenNote(){
+    
+  }
+
   return (
     <div className="fullNote">
       <div className="TitleArea">
