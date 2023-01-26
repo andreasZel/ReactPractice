@@ -6,11 +6,7 @@ import Italics from "../Icons/Italics.svg";
 import List from "../Icons/list.svg";
 
 export default function FullNote(props) {
-
-  function findChoosenNote(){
-    
-  }
-
+  //console.log(JSON.parse(localStorage.getItem("selectedNote")).title);
   return (
     <div className="fullNote">
       <div className="TitleArea">
@@ -18,13 +14,13 @@ export default function FullNote(props) {
           className="NoteDate"
           type="text"
           placeholder="1 / 12 / 23"
-          defaultValue=""
+          defaultValue={props.title}
         />
         <input
           className="NoteT"
           type="text"
           placeholder="Meet 6pm"
-          defaultValue=""
+          defaultValue={props.date}
         />
       </div>
       <div className="EditBar">
@@ -46,7 +42,7 @@ export default function FullNote(props) {
       </div>
       <textarea
         className="DescriptionArea"
-        defaultValue="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        defaultValue={props.description}
       ></textarea>
       <button className="SaveNoteBtn">Save Note</button>
     </div>

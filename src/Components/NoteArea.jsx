@@ -39,12 +39,12 @@ export default function NoteArea(props) {
           setLoading(false);
         });
 
-      //console.log(TmpNotes.data);
       let Tmp = TmpNotes.data.map((note, i) => {
         return (
           <Note
             key={i}
             id={i}
+            N={props.notes}
             createdDate={note.id.creationTime}
             chooseNote={props.chooseNote}
             idofchoosenNote={props.choosenNote.id}
@@ -52,7 +52,7 @@ export default function NoteArea(props) {
               props.choosenNote.id == i ? NoteStyleNormal : NoteStyleChoosen
             }
             notetitle={note.noteTitle}
-            notedescription={note.NoteContent}
+            notedescription={note.noteContent}
           />
         );
       });
@@ -70,6 +70,15 @@ export default function NoteArea(props) {
   useEffect(() => {
     props.chooseNote(JSON.parse(localStorage.getItem("selectedNote")));
     GetNotes();
+    props.updateFullNote({
+      title: JSON.parse(localStorage.getItem("selectedNote")).title,
+      date: JSON.parse(localStorage.getItem("selectedNote")).creationTime.slice(
+        0,
+        10
+      ),
+      description: JSON.parse(localStorage.getItem("selectedNote")).description,
+    });
+    //console.log(props.FullNoteArr)
   }, [localStorage.getItem("selectedNote")]);
 
   if (isLoading) {
