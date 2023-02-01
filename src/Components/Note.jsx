@@ -10,25 +10,32 @@ export default function Note(props) {
       id={props.id}
       ref={ref}
       style={props.style}
+      noteId={props.noteId}
+      AuthorId={props.authorId}
       noteDescription={props.notedescription}
       noteCreationTime={props.createdDate}
       titleofNote={props.notetitle}
       onClick={() => {
-        props.chooseNote({
-          id: ref.current.id,
-          description: ref.current.getAttribute("noteDescription"),
-          creationTime: ref.current.getAttribute("noteCreationTime"),
-        });
-
         localStorage.setItem(
           "selectedNote",
           JSON.stringify({
             id: ref.current.id,
+            noteId: ref.current.getAttribute('noteid'),
+            AuthorId: ref.current.getAttribute('authorid'),
             title: ref.current.getAttribute("titleofNote"),
             description: ref.current.getAttribute("noteDescription"),
             creationTime: ref.current.getAttribute("noteCreationTime"),
           })
         );
+
+        props.chooseNote({
+          id: ref.current.id,
+          noteId: ref.current.getAttribute('noteid'),
+          AuthorId: ref.current.getAttribute('Authorid'),
+          description: ref.current.getAttribute("noteDescription"),
+          creationTime: ref.current.getAttribute("noteCreationTime"),
+        });
+
         //console.log(JSON.parse(localStorage.getItem("selectedNote")));
       }}
     >

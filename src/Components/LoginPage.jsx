@@ -1,4 +1,5 @@
 import "../CSS/LoginPage.css";
+import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 export default function LoginPage(props) {
@@ -37,7 +38,9 @@ export default function LoginPage(props) {
           />
           <span className="RegisterPrompt">
             <h4>Not a member?</h4>
-            <h3>Register Now</h3>
+            <Link to="/RegisterPage">
+              <h3>Register Now</h3>
+            </Link>
           </span>
         </div>
 

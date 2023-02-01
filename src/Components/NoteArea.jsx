@@ -23,19 +23,30 @@ export default function NoteArea(props) {
 
   const GetNotes = async () => {
     try {
-      const User = localStorage.getItem("user");
-      var TmpNotes;
+      //! old method========
+      /*
+      const User = JSON.parse(localStorage.getItem("user")).username;
+     
+      
       const UserId = await axios.get(
         `${BASE_URL}Users/GetUserId?userName=${User}`
       );
-
-      let id = UserId.data.pid.toString();
-
+      
+      let id = UserId.data;
+      */
+      //!====================
       //Get data from server
+      var TmpNotes;
+
       await axios
-        .get(`${BASE_URL}Notes/GetNotesOfUser?UserId=${id}`)
+        .get(
+          `${BASE_URL}Notes/GetNotesOfUser?UserId=${
+            JSON.parse(localStorage.getItem("user")).userId.data
+          }`
+        )
         .then((response) => {
           TmpNotes = response;
+          //console.log(TmpNotes);
           setLoading(false);
         });
 
@@ -44,8 +55,10 @@ export default function NoteArea(props) {
           <Note
             key={i}
             id={i}
+            authorId={note.authorId}
+            noteId={note.id}
             N={props.notes}
-            createdDate={note.id.creationTime}
+            createdDate={note.timeOfCreation}
             chooseNote={props.chooseNote}
             idofchoosenNote={props.choosenNote.id}
             style={
@@ -56,8 +69,20 @@ export default function NoteArea(props) {
           />
         );
       });
-
       props.UpdateNotes(Tmp);
+
+      localStorage.setItem(
+        "selectedNote",
+        JSON.stringify({
+          id: 0,
+          noteId: TmpNotes[0].data.id,
+          AuthorId: TmpNotes[0].data.authorId,
+          title: TmpNotes[0].data.noteTitle,
+          description: TmpNotes[0].data.noteContent,
+          creationTime: TmpNotes[0].data.timeOfCreation,
+        })
+      );
+
       return;
     } catch (e) {
       if (e.response) {
@@ -68,8 +93,8 @@ export default function NoteArea(props) {
   };
 
   useEffect(() => {
-    props.chooseNote(JSON.parse(localStorage.getItem("selectedNote")));
     GetNotes();
+    props.chooseNote(JSON.parse(localStorage.getItem("selectedNote")));
     props.updateFullNote({
       title: JSON.parse(localStorage.getItem("selectedNote")).title,
       date: JSON.parse(localStorage.getItem("selectedNote")).creationTime.slice(

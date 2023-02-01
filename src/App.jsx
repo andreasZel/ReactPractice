@@ -28,10 +28,17 @@ function App() {
       };
 
       //post data to server
-      await axios.post(`${BASE_URL}Users/LogInUser`, User);
-      //redirect to main page passing the username
-      localStorage.setItem("user", props.Username);
-      window.location.replace(`http://localhost:3000/`);
+      await axios.post(`${BASE_URL}Users/LogInUser`, User).then((response) => {
+        //redirect to main page passing the username
+        localStorage.setItem(
+          "user",
+          JSON.stringify({ username: props.Username, userId: response })
+        );
+
+        console.log(JSON.parse(localStorage.getItem("user")));
+        window.location.replace(`http://localhost:3000/`);
+      });
+
       return;
     } catch (e) {
       if (e.response.status === 22222) {
@@ -62,9 +69,27 @@ function App() {
       };
 
       //post data to server
-      await axios.post(`${BASE_URL}Users/AddUser`, User);
-      //redirect to main page passing the username
-      localStorage.setItem("user", props.Username);
+      await axios.post(`${BASE_URL}Users/AddUser`, User).then((response) => {
+        //redirect to main page passing the username
+        localStorage.setItem(
+          "user",
+          JSON.stringify({ username: props.Username, userId: response })
+        );
+      });
+
+      const newNote = {
+        timeOfCreation: "string",
+        noteTitle: "Edit Your First Note!",
+        noteContent: "Edit Your Note",
+        authorId: JSON.parse(
+          localStorage.getItem("user")
+        ).userId.data.toString(),
+      };
+
+      // Create a default note for the new user
+      await axios.post(`${BASE_URL}Notes/AddNote`, newNote).then((response) => {
+        //redirect to main page passing the username
+      });
       window.location.replace(`http://localhost:3000/`);
       return;
     } catch (e) {

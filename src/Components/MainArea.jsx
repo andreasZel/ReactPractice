@@ -1,6 +1,6 @@
 import NoteArea from "./NoteArea.jsx";
 import FullNote from "./FullNote.jsx";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import "../CSS/MainArea.css";
 
 export default function MainArea() {
@@ -15,16 +15,17 @@ export default function MainArea() {
 
   function updateFullNote(props) {
     upadeFullNoteArr();
-    console.log("myprops ", props.title);
-    console.log("FullNoteArr ", FullNoteArr);
+    //console.log("myprops ", props.title);
+    //console.log("FullNoteArr ", FullNoteArr);
     upadeFullNoteArr(
       <FullNote
+        chooseNote={props.chooseNote}
         title={props.title}
         date={props.date}
         description={props.description}
       />
     );
-    console.log("FullNoteArr After", FullNoteArr);
+    //console.log("FullNoteArr After", FullNoteArr);
   }
 
   return (
