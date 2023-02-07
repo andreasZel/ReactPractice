@@ -3,7 +3,7 @@ import FullNote from "./FullNote.jsx";
 import { useState } from "react";
 import "../CSS/MainArea.css";
 
-export default function MainArea() {
+export default function MainArea(props) {
   const [Notes, UpdateNotes] = useState([{}]);
   const [choosenNote, chooseNote] = useState({
     id: "",
@@ -31,6 +31,7 @@ export default function MainArea() {
   return (
     <div className="mainArea">
       <NoteArea
+        closePopUp={() => props.closePopUp()}
         notes={Notes}
         choosenNote={choosenNote}
         UpdateNotes={UpdateNotes}

@@ -21,6 +21,10 @@ export default function NoteArea(props) {
     backgroundColor: "#ffac5e",
   };
 
+  function promptToDelete() {
+    alert("You are sure you want to delete this note?");
+  }
+
   const GetNotes = async () => {
     try {
       //! old method========
@@ -55,7 +59,9 @@ export default function NoteArea(props) {
           <Note
             key={i}
             id={i}
+            closePopUp={() => props.closePopUp()}
             authorId={note.authorId}
+            promptToDelete={promptToDelete}
             noteId={note.id}
             N={props.notes}
             createdDate={note.timeOfCreation}
