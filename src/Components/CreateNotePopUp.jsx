@@ -18,7 +18,8 @@ export default function CreateNotePopUp(props) {
     // Create a default note for the new user
     await axios.post(`${BASE_URL}Notes/AddNote`, newNote).then((response) => {
       props.closePopUp();
-      window.location.replace(`http://localhost:3000`);
+      props.GetNotes();
+      //window.location.replace(`http://localhost:3000`);
     });
   }
 

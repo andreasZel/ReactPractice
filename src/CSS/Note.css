@@ -1,8 +1,11 @@
 .note {
   width: 310px;
   height: 310px;
+  justify-content: center;
   background-color: #ffe55e;
   position: relative;
+  text-align: center;
+  overflow-wrap: break-word;
   transition: all 0.2s ease-in-out;
 }
 
@@ -13,25 +16,25 @@
 .note h1 {
   position: absolute;
   top: 43%;
-  left: 26%;
-  margin: auto;
-  overflow: hidden;
-  word-wrap: break-word;
+  width: 100%;
+  overflow-wrap: break-word;
 }
 
 .date-box {
   background-color: #757575;
   position: absolute;
   top: 0;
+  display:flex;
+  align-items: center;
   height: 50px;
   width: 100%;
   text-align: center;
 }
 
 .date-box h1 {
-  position: absolute;
-  top: 7px;
-  left: 33%;
+  left: 20px;
+  top: 5px;
+  width: 150px;
   font-size: 25px;
 }
 
@@ -43,6 +46,7 @@
   justify-content: center;
   align-items: center;
   display: flex;
+  margin-left: auto;
   font-weight: 300;
   font-size: 25px;
   transition: 0.3s;

@@ -17,7 +17,21 @@ export default function DeleteNotePrompt(props) {
 
     await axios.post(`${BASE_URL}Notes/DeleteNote`, Note).then((response) => {
       console.log(response);
-      window.location.replace(`http://localhost:3000`);
+      props.closePopUp();
+
+      localStorage.setItem(
+        "selectedNote",
+        JSON.stringify({
+          id: "0",
+          noteId: "",
+          AuthorId: "",
+          title: "",
+          description: "",
+          creationTime: "",
+        })
+      );
+
+      props.GetNotes();
     });
   }
 

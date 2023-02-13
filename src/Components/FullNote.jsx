@@ -8,29 +8,52 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 
 export default function FullNote(props) {
-  //console.log(JSON.parse(localStorage.getItem("selectedNote")).title);
   const BASE_URL = "https://localhost:7063/api/";
-  const [Title, changeTitle] = useState(props.title);
-  const [Date, changeDate] = useState(props.date);
-  const [Description, changeDescription] = useState(props.description);
+  const [Title, changeTitle] = useState();
+  const [Date, changeDate] = useState();
+  const [Description, changeDescription] = useState();
 
-  const EditNote = async (props) => {
+  const EditNote = async (props2) => {
     try {
-      //console.log(props.NoteTitle);
+      console.log("2   ", props2);
       const Note2 = {
-        id: props.id,
+        id: props2.id,
         timeOfCreation: "4:17:48 μμ",
-        NoteTitle: props.NoteTitle,
-        noteContent: props.NoteContent,
-        authorId: props.AuthorId,
+        NoteTitle: Title,
+        noteContent: Description,
+        authorId: props2.AuthorId,
       };
 
       //console.log("Note:", Note2);
       //post data to server
       await axios.post(`${BASE_URL}Notes/EditNote`, Note2).then((response) => {
         //console.log(response);
+
+        let tempid = JSON.parse(localStorage.getItem("selectedNote")).id;
+        let noteId = JSON.parse(localStorage.getItem("selectedNote")).noteId;
+
+        localStorage.setItem(
+          "selectedNote",
+          JSON.stringify({
+            id: tempid,
+            noteId: noteId,
+            AuthorId: response.data.authorId,
+            title: response.data.noteTitle,
+            description: response.data.noteContent,
+            creationTime: response.data.timeOfCreation,
+          })
+        );
       });
+
       //redirect to main page passing the username
+      props.GetNotes();
+
+      const hh = {
+        title: Title,
+        date: Date,
+        description: Description,
+      };
+      props.updateFullNote(hh);
 
       return;
     } catch (e) {
@@ -38,17 +61,11 @@ export default function FullNote(props) {
     }
   };
 
-  function changeNoteContent(props) {
-    EditNote(props);
-    window.location.replace(`http://localhost:3000`);
-  }
-
   useEffect(() => {
-    //console.log("tsa"); //debugging purposes
     changeTitle(props.title);
     changeDate(props.date);
     changeDescription(props.description);
-  }, [props.title]);
+  }, [props]);
 
   return (
     <div className="fullNote">
@@ -58,7 +75,7 @@ export default function FullNote(props) {
           className="NoteDate"
           type="text"
           placeholder="1 / 12 / 23"
-          defaultValue={Title}
+          value={Title}
           onChange={(e) => changeTitle(e.target.value)}
         />
         <input
@@ -66,7 +83,7 @@ export default function FullNote(props) {
           className="NoteT"
           type="text"
           placeholder="Meet 6pm"
-          defaultValue={Date}
+          value={Date}
           onChange={(e) => changeDate(e.target.value)}
         />
       </div>
@@ -90,19 +107,20 @@ export default function FullNote(props) {
       <textarea
         id="DescriptionArea"
         className="DescriptionArea"
-        defaultValue={Description}
+        value={Description}
         onChange={(e) => changeDescription(e.target.value)}
       ></textarea>
       <button
         className="SaveNoteBtn"
-        onClick={() =>
-          changeNoteContent({
+        onClick={() => {
+          //console.log("description", Description);
+          EditNote({
             id: JSON.parse(localStorage.getItem("selectedNote")).noteId,
             NoteTitle: Title,
             NoteContent: Description,
             AuthorId: JSON.parse(localStorage.getItem("selectedNote")).AuthorId,
-          })
-        }
+          });
+        }}
       >
         Save Note
       </button>

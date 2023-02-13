@@ -1,9 +1,9 @@
 import "../CSS/Note.css";
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 
 export default function Note(props) {
   const ref = useRef(null);
-  //if (JSON.parse(localStorage.getItem("selectedNote")).noteId != null) {
+
   const note_close_btn =
     JSON.parse(localStorage.getItem("selectedNote")).noteId == props.noteId ? (
       <button className="Close_Note_Btn" onClick={() => props.closePopUp()}>
@@ -12,9 +12,6 @@ export default function Note(props) {
     ) : (
       <div></div>
     );
-  //} else {
-  //  const note_close_btn = <div></div>;
-  //}
 
   return (
     <div
@@ -28,6 +25,8 @@ export default function Note(props) {
       noteCreationTime={props.createdDate}
       titleofNote={props.notetitle}
       onClick={() => {
+        //props.GetNotes();
+
         localStorage.setItem(
           "selectedNote",
           JSON.stringify({
@@ -40,20 +39,21 @@ export default function Note(props) {
           })
         );
 
-        props.chooseNote({
+        const oo = {
           id: ref.current.id,
           noteId: ref.current.getAttribute("noteid"),
           AuthorId: ref.current.getAttribute("Authorid"),
           description: ref.current.getAttribute("noteDescription"),
           creationTime: ref.current.getAttribute("noteCreationTime"),
-        });
+        };
+        props.chooseNote(oo);
 
-        //console.log(JSON.parse(localStorage.getItem("selectedNote")));
+        props.GetNotes();
       }}
     >
       <div className="date-box">
-        <h1> {props.createdDate.toString().slice(0, 10)} </h1>
         {note_close_btn}
+        <h1> {props.createdDate.toString()} </h1>
       </div>
       <h1> {props.notetitle} </h1>
     </div>

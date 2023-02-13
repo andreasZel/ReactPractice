@@ -36,6 +36,17 @@ function App() {
         );
 
         console.log(JSON.parse(localStorage.getItem("user")));
+        localStorage.setItem(
+          "selectedNote",
+          JSON.stringify({
+            id: "0",
+            noteId: "",
+            AuthorId: "",
+            title: "",
+            description: "",
+            creationTime: "",
+          })
+        );
         window.location.replace(`http://localhost:3000/`);
       });
 
@@ -90,6 +101,17 @@ function App() {
       await axios.post(`${BASE_URL}Notes/AddNote`, newNote).then((response) => {
         //redirect to main page passing the username
       });
+      localStorage.setItem(
+        "selectedNote",
+        JSON.stringify({
+          id: "0",
+          noteId: "",
+          AuthorId: "",
+          title: "",
+          description: "",
+          creationTime: "",
+        })
+      );
       window.location.replace(`http://localhost:3000/`);
       return;
     } catch (e) {
