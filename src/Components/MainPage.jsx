@@ -6,6 +6,7 @@ import React, { useState, useEffect } from "react";
 import DeleteNotePrompt from "./DeleteNotePrompt.jsx";
 import Note from "./Note.jsx";
 import FullNote from "./FullNote.jsx";
+import EditUserPopup from "./EditUserPopup.jsx";
 import axios from "axios";
 
 export default function MainPage() {
@@ -61,6 +62,20 @@ export default function MainPage() {
     height: "100%",
     background: "rgba(73, 73, 73, 0.66)",
     zIndex: "3",
+    contentVisibility: "hidden",
+    visibility: "hidden",
+  });
+
+  let [styleOfUpdateUserPopUp, changeVisibilityEditUser] = useState({
+    display: "grid",
+    gridTemplateColumns: "auto",
+    gridTemplateRows: "auto auto",
+    position: "absolute",
+    top: "0px",
+    width: "100%",
+    height: "100%",
+    background: "rgba(73, 73, 73, 0.66)",
+    zIndex: "6",
     contentVisibility: "hidden",
     visibility: "hidden",
   });
@@ -187,6 +202,22 @@ export default function MainPage() {
     GetNotes();
   }
 
+  function OpenCloseUpdateUserPopUp() {
+    changeVisibilityEditUser((previousVisibility) => {
+      return {
+        ...previousVisibility,
+        contentVisibility:
+          previousVisibility.contentVisibility === "hidden"
+            ? "visible"
+            : "hidden",
+        visibility:
+          previousVisibility.visibility === "hidden" ? "visible" : "hidden",
+      };
+    });
+
+    GetNotes();
+  }
+
   useEffect(() => {
     if (!localStorage.getItem("user")) {
       window.location.replace(`http://localhost:3000/LoginPage`);
@@ -197,7 +228,7 @@ export default function MainPage() {
 
   return (
     <div className="mainPage">
-      <Header />
+      <Header openPopUp={OpenCloseUpdateUserPopUp} />
       <MainArea
         Notes={Notes}
         GetNotes={GetNotes}
@@ -219,6 +250,11 @@ export default function MainPage() {
         closePopUp={OpenCloseDeleteNotePopUp}
         style={styleOfDeleteNotePopUp}
         GetNotes={GetNotes}
+      />
+      <EditUserPopup
+        styleOfUpdateUserPopUp={styleOfUpdateUserPopUp}
+        changeVisibilityEditUser={changeVisibilityEditUser}
+        closePopUp={OpenCloseUpdateUserPopUp}
       />
     </div>
   );

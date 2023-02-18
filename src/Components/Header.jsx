@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
 import "../CSS/Header.css";
 
-export default function Header() {
+export default function Header(props) {
   function LogOut() {
     localStorage.removeItem("user");
+    localStorage.removeItem("selectedNote");
   }
 
   return (
@@ -16,9 +17,9 @@ export default function Header() {
           <img src="https://cdn-icons-png.flaticon.com/512/1828/1828479.png" />
         </Link>
 
-        <a href="">
+        <button onClick={props.openPopUp}>
           <img src="https://cdn-icons-png.flaticon.com/512/1077/1077114.png" />
-        </a>
+        </button>
       </div>
     </div>
   );

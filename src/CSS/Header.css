@@ -20,13 +20,18 @@
     color: #FFE55E;
 }
 
-a img{
+img{
     width: 29px;
     height: 34px;
     transition: all .2s ease-in-out;
 }
 
-a img:hover {
+button {
+    background-color: transparent;
+    border: none;
+}
+
+img:hover {
     transform: scale(0.84); 
 }
 

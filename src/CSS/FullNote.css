@@ -16,6 +16,11 @@
   display: grid;
 }
 
+.fullNote img {
+  width: 30px;
+  height: 30px;
+}
+
 .TitleArea input {
   font-size: 28px;
   font-weight: 800;
