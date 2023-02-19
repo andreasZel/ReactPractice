@@ -88,7 +88,7 @@ function App() {
         );
       });
 
-      //console.log(JSON.parse(localStorage.getItem("user")).userId.data.id);
+      console.log(JSON.parse(localStorage.getItem("user")).userId.data.id);
 
       const newNote = {
         timeOfCreation: "string",

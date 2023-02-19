@@ -162,7 +162,7 @@
 }
 
 /*tablet*/
-@media screen and (max-width: 1024px), screen and (max-width: 768px) {
+@media screen and (max-width: 1024px), screen and (max-height: 768px) {
   .logInContainer {
     margin: auto;
     margin-top: 95px;
@@ -176,7 +176,7 @@
   }
 }
 
-@media screen and (max-width: 375px), screen and (max-width: 667px) {
+@media screen and (max-width: 375px), screen and (max-height: 667px) {
   .logInHeader {
     height: 200px;
     width: 100%;
