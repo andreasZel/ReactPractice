@@ -24,7 +24,7 @@
   background-color: #757575;
   position: absolute;
   top: 0;
-  display:flex;
+  display: flex;
   align-items: center;
   height: 50px;
   width: 100%;
@@ -56,4 +56,87 @@
   background-color: rgb(223, 45, 45);
   color: white;
   box-shadow: 0px 0px 18px 1px rgba(0, 0, 0, 0.25);
+}
+
+@media screen and (max-width: 1440px), screen and (max-height: 900px) {
+  .note {
+    width: 310px;
+    height: 310px;
+    font-size: 13px;
+    justify-content: center;
+    background-color: #ffe55e;
+    position: relative;
+    text-align: center;
+    overflow-wrap: break-word;
+    transition: all 0.2s ease-in-out;
+  }
+}
+
+@media screen and (max-width: 1024px), screen and (max-height: 768px) {
+  .note {
+    width: 250px!important;
+    height: 250px!important;
+    font-size: 13px;
+    justify-content: center;
+    background-color: #ffe55e;
+    position: relative;
+    text-align: center;
+    overflow-wrap: break-word;
+    transition: all 0.2s ease-in-out;
+  }
+  
+}
+
+@media screen and (max-width: 375px), screen and (max-height: 667px) {
+  .note {
+    width: 120px!important;
+    height: 120px!important;
+    font-size: 13px;
+    justify-content: center;
+    background-color: #ffe55e;
+    position: relative;
+    text-align: center;
+    overflow-wrap: break-word;
+    transition: all 0.2s ease-in-out;
+  }
+
+  .date-box {
+    background-color: #757575;
+    position: absolute;
+    top: 0;
+    display: flex;
+    align-items: center;
+    height: 30px;
+    width: 100%;
+    text-align: center;
+  }
+
+  .date-box h1 {
+    left: -25px;
+    top: 5px;
+    width: 150px;
+    font-size: 12px;
+  }
+
+  .Close_Note_Btn {
+    border: 2px #757575;
+    width: 30px;
+    height: 100%;
+    background-color: rgb(182, 68, 68);
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    margin-left: auto;
+    font-weight: 300;
+    font-size: 25px;
+    transition: 0.3s;
+  }
+
+  .note h1 {
+    position: absolute;
+    top: 43%;
+    width: 100%;
+    font-size: 12px;
+    overflow-wrap: break-word;
+  }
 }

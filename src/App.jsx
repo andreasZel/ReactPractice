@@ -72,7 +72,7 @@ function App() {
         console.log("error email or pass");
         return;
       }
-
+      //console.log("23213213");
       const User = {
         userName: props.Username,
         Email: props.Email,
@@ -88,13 +88,13 @@ function App() {
         );
       });
 
+      //console.log(JSON.parse(localStorage.getItem("user")).userId.data.id);
+
       const newNote = {
         timeOfCreation: "string",
         noteTitle: "Edit Your First Note!",
         noteContent: "Edit Your Note",
-        authorId: JSON.parse(
-          localStorage.getItem("user")
-        ).userId.data.toString(),
+        authorId: JSON.parse(localStorage.getItem("user")).userId.data.id,
       };
 
       // Create a default note for the new user

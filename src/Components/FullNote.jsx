@@ -9,9 +9,9 @@ import axios from "axios";
 
 export default function FullNote(props) {
   const BASE_URL = "https://localhost:7063/api/";
-  const [Title, changeTitle] = useState();
-  const [Date, changeDate] = useState();
-  const [Description, changeDescription] = useState();
+  const [Title, changeTitle] = useState("");
+  const [Date, changeDate] = useState("");
+  const [Description, changeDescription] = useState("");
 
   const EditNote = async (props2) => {
     try {
@@ -61,6 +61,41 @@ export default function FullNote(props) {
     }
   };
 
+  const MainMessage = (message) => {
+    const newExpresion = [];
+    newExpresion.push("");
+    var msg = String(message);
+    //console.log(msg);
+    const newMsg = msg.split(/\s/);
+    //console.log(newMsg);
+
+    var t = "";
+    if (window.getSelection) {
+      t = window.getSelection();
+    } else if (document.getSelection) {
+      t = document.getSelection();
+    } else if (document.selection) {
+      t = document.selection.createRange().text;
+    }
+    console.log("t", t.toString());
+
+    var text = t.toString();
+
+    let i = 0;
+    newMsg.forEach((element) => {
+      if (element === text) {
+        newExpresion.push(" ");
+        newExpresion.push(<strong>{element}</strong>);
+        i += 2;
+      } else {
+        newExpresion[i] = `${newExpresion[i]} ${element}`;
+      }
+    });
+    console.log(newExpresion);
+    newExpresion.map((item) => item);
+    changeDescription(newExpresion);
+  };
+
   useEffect(() => {
     changeTitle(props.title);
     changeDate(props.date);
@@ -88,7 +123,7 @@ export default function FullNote(props) {
         />
       </div>
       <div className="EditBar">
-        <button>
+        <button onMouseDown={() => MainMessage(Description)}>
           <img src={Bold} />
         </button>
         <button>
@@ -105,10 +140,14 @@ export default function FullNote(props) {
         </button>
       </div>
       <textarea
+        contentEditable="true"
         id="DescriptionArea"
         className="DescriptionArea"
         value={Description}
-        onChange={(e) => changeDescription(e.target.value)}
+        onChange={(e) => {
+          console.log(e.target.value);
+          changeDescription(e.target.value);
+        }}
       ></textarea>
       <button
         className="SaveNoteBtn"

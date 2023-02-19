@@ -5,6 +5,7 @@ export default function Header(props) {
   function LogOut() {
     localStorage.removeItem("user");
     localStorage.removeItem("selectedNote");
+    console.log(localStorage.getItem("user"));
   }
 
   return (
